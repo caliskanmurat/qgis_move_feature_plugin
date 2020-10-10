@@ -1,2 +1,2 @@
-# qgis_move_feature_plugin
+# QGIS Move Feature Plugin
 source code of the plugin
