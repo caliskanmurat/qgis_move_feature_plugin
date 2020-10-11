@@ -18,6 +18,6 @@ For doing this, 4 method can be used:<br/>
 		<td><img height="250px" src="../images/Select Reference Points From Canvas.PNG" alt="" /></td>
 	</tr>
 	<tr>
-		<td colspan=4><img height="1000px" src="../images/result.PNG" alt="" /></td>
+		<td colspan=4><img height="1000px" src="../images/Result.PNG" alt="" /></td>
 	</tr>
 	</table>
