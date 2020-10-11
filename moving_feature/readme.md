@@ -13,6 +13,7 @@ For doing this, 4 method can be used:<br/>
 
 <p align="center">
   <img width="350" src="../images/Reference Points From Layer.PNG">
+  <img width="350" src="../images/Type Coordinates.PNG">
 </p>
 <br/>
 <p align="center">
