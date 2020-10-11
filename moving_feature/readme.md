@@ -10,6 +10,14 @@ For doing this, 4 method can be used:<br/>
 
 * The plugin can be downloaded from: <a href="https://plugins.qgis.org/plugins/moving_feature/" target="_blank">https://plugins.qgis.org/plugins/moving_feature/</a>
 
-<p align="center">
-  <img width="600" src="../images/Reference Points From Layer.PNG">
-</p>
+<table>
+	<tr>
+		<td><img height="250px" src="Reference Points From Layer.PNG" alt="" /></td>
+		<td><img height="250px" src="Type Coordinates.PNG" alt="" /></td>
+		<td><img height="250px" src="Type dx and dy.PNG" alt="" /></td>
+		<td><img height="250px" src="Select Reference Points From Canvas.PNG" alt="" /></td>
+	</tr>
+	<tr>
+		<td colspan=4><img height="1000px" src="result.PNG" alt="" /></td>
+	</tr>
+	</table>
