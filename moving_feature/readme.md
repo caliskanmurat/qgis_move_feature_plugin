@@ -10,3 +10,6 @@ For doing this, 4 method can be used:<br/>
 
 * The plugin can be downloaded from: <a href="https://plugins.qgis.org/plugins/moving_feature/" target="_blank">https://plugins.qgis.org/plugins/moving_feature/</a>
 
+<p align="center">
+  <img width="600" src="../images/Reference Points From Layer.png">
+</p>
