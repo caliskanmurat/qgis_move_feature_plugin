@@ -12,12 +12,12 @@ For doing this, 4 method can be used:<br/>
 
 <table>
 	<tr>
-		<td><img height="250px" src="Reference Points From Layer.PNG" alt="" /></td>
-		<td><img height="250px" src="Type Coordinates.PNG" alt="" /></td>
-		<td><img height="250px" src="Type dx and dy.PNG" alt="" /></td>
-		<td><img height="250px" src="Select Reference Points From Canvas.PNG" alt="" /></td>
+		<td><img height="250px" src="../images/Reference Points From Layer.PNG" alt="" /></td>
+		<td><img height="250px" src="../images/Type Coordinates.PNG" alt="" /></td>
+		<td><img height="250px" src="../images/Type dx and dy.PNG" alt="" /></td>
+		<td><img height="250px" src="../images/Select Reference Points From Canvas.PNG" alt="" /></td>
 	</tr>
 	<tr>
-		<td colspan=4><img height="1000px" src="result.PNG" alt="" /></td>
+		<td colspan=4><img height="1000px" src="../images/result.PNG" alt="" /></td>
 	</tr>
 	</table>
