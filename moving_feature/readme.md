@@ -10,16 +10,24 @@ For doing this, 4 method can be used:<br/>
 
 * The plugin can be downloaded from: <a href="https://plugins.qgis.org/plugins/moving_feature/" target="_blank">https://plugins.qgis.org/plugins/moving_feature/</a>
 
-<table>
-	<tr>
-		<td><img height="250px" src="../images/Reference Points From Layer.PNG" alt="" /></td>
-		<td><img height="250px" src="../images/Type Coordinates.PNG" alt="" /></td>
-	</tr>
-	<tr>
-		<td><img height="250px" src="../images/Type dx and dy.PNG" alt="" /></td>
-		<td><img height="250px" src="../images/Select Reference Points From Canvas.PNG" alt="" /></td>
-	</tr>
-	<tr>
-		<td colspan=2><img height="1000px" src="../images/Result.PNG" alt="" /></td>
-	</tr>
-	</table>
+
+<p align="center">
+  <img width="350" src="../images/Reference Points From Layer.PNG">
+</p>
+<br/>
+<p align="center">
+  <img width="350" src="../images/Type Coordinates.PNG">
+</p>
+<br/>
+<p align="center">
+  <img width="350" src="../images/Type dx and dy.PNG">
+</p>
+<br/>
+<p align="center">
+  <img width="350" src="../images/Select Reference Points From Canvas.PNG">
+</p>
+<br/>
+<p align="center">
+  <img width="350" src="../images/Result.PNG">
+</p>
+<br/>
