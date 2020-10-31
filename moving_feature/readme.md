@@ -41,7 +41,7 @@ In this method; start reference point and end reference point must be selected f
 <br/>
 
 ### The result output:
-After process the layer(to be moved) is moved to the target location based on given reference points.<br/>
+After the process, the layer(to be moved) is moved to the target location based on given reference points.<br/>
 
 <p align="left">
   <img width="600" src="../images/Result.PNG">
