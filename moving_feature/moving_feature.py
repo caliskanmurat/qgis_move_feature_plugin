@@ -26,7 +26,7 @@ from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QFileDialog
 from qgis.utils import iface
 from qgis.core import Qgis, QgsPointXY, QgsGeometry, QgsVectorFileWriter, QgsFields, QgsField, QgsWkbTypes, QgsFeature, QgsCoordinateReferenceSystem, QgsVectorLayer
-from qgis.gui import QgsMapToolEmitPoint, QgsMapMouseEvent
+from qgis.gui import QgsMapToolEmitPoint
 
 from qgis.core import QgsProject
 
@@ -36,8 +36,8 @@ from .resources import *
 from .moving_feature_dialog import MoveFeatureDialog
 import os.path
 
-from osgeo import ogr, osr
-import os, json
+
+import os
 
 class MoveFeature():
     """QGIS Plugin Implementation."""
@@ -189,13 +189,30 @@ class MoveFeature():
             
     
     def getLayers(self):
-        self.dlg.comboBox.clear()
-        self.dlg.comboBox_2.clear()
-        self.dlg.comboBox_3.clear()
+        self.dlg.cb_layers.clear()
+        self.dlg.cb_source.clear()
+        self.dlg.cb_target.clear()
+                
+        self.dlg.cb_layers.addItems(self.layers.keys())
+        self.dlg.cb_source.addItems([k for k,v in self.layers.items() if v.wkbType() == 1])
+        self.dlg.cb_target.addItems([k for k,v in self.layers.items() if v.wkbType() == 1])
         
-        self.dlg.comboBox_3.addItems(self.layers.keys())
-        self.dlg.comboBox_2.addItems([k for k,v in self.layers.items() if v.wkbType() == 1])
-        self.dlg.comboBox.addItems([k for k,v in self.layers.items() if v.wkbType() == 1])
+        self.startName = self.dlg.cb_source.currentText()
+        self.endName = self.dlg.cb_target.currentText()
+        try:
+            self.startLayer = self.layers[self.startName]
+            self.geomStart = next(self.startLayer.getFeatures()).geometry()
+            self.sx, self.sy = self.geomStart.asPoint()
+            self.dlg.sb_source_x.setValue(self.sx)
+            self.dlg.sb_source_y.setValue(self.sy)
+            
+            self.endLayer = self.layers[self.endName]
+            self.geomEnd = next(self.endLayer.getFeatures()).geometry()
+            self.ex, self.ey = self.geomEnd.asPoint()
+            self.dlg.sb_target_x.setValue(self.ex)
+            self.dlg.sb_target_y.setValue(self.ey)
+        except:
+            pass
             
     def select_output(self):
         self.dlg.lineEdit.setText("")
@@ -206,24 +223,23 @@ class MoveFeature():
         self.fjson = {'type': 'Feature'}
         self.fjson["id"] = feat.id()
         self.fjson["geometry"] = feat.geometry()
-        self.fjson["properties"] = [(field.type(),field.name(),attr) if attr else (field.type(),field.name(),"") for field, attr in zip(feat.fields(), feat.attributes())]
+        self.fjson["properties"] = [(field.type(),field.name(),attr) for field, attr in zip(feat.fields(), feat.attributes())]
         return self.fjson
     
     def display_point(self, pointTool, pnt):
         try:
-            self.coorx = round(pointTool.x(),3)
-            self.coory = round(pointTool.y(),3)
+            self.coorx = round(pointTool.x(),6)
+            self.coory = round(pointTool.y(),6)
             if pnt == "start":
-                self.dlg.label_13.setText(str(self.coorx))
-                self.dlg.label_14.setText(str(self.coory))
+                self.dlg.sb_source_x.setValue(self.coorx)
+                self.dlg.sb_source_y.setValue(self.coory)
             elif pnt == "end":
-                self.dlg.label_15.setText(str(self.coorx))
-                self.dlg.label_16.setText(str(self.coory))   
+                self.dlg.sb_target_x.setValue(self.coorx)
+                self.dlg.sb_target_y.setValue(self.coory) 
         except AttributeError:
             pass
         self.unset()
-        self.dlg.showNormal()
-        
+        self.dlg.showNormal()        
     
     def getClickedCoor(self, pnt):
         self.dlg.showMinimized()
@@ -234,11 +250,35 @@ class MoveFeature():
         
     def unset(self):
         self.canvas.unsetMapTool(pointTool)
+        
+    def getCoors(self):
+        self.sender = self.dlg.sender()
+        self.oname = self.sender.objectName()
+        
+        if self.oname == "cb_source":
+            self.startName = self.dlg.cb_source.currentText()
+            self.startLayer = self.layers[self.startName]
+            self.geomStart = next(self.startLayer.getFeatures()).geometry()
+            self.sx, self.sy = self.geomStart.asPoint()
+            self.dlg.sb_source_x.setValue(self.sx)
+            self.dlg.sb_source_y.setValue(self.sy)
+        
+        elif self.oname == "cb_target":
+            self.endName = self.dlg.cb_target.currentText()
+            self.endLayer = self.layers[self.endName]
+            self.geomEnd = next(self.endLayer.getFeatures()).geometry()
+            self.ex, self.ey = self.geomEnd.asPoint()
+            self.dlg.sb_target_x.setValue(self.ex)
+            self.dlg.sb_target_y.setValue(self.ey)        
+    
+    def getDeltas(self):
+        self.dlg.sb_dx.setValue(self.dlg.sb_target_x.value() - self.dlg.sb_source_x.value())
+        self.dlg.sb_dy.setValue(self.dlg.sb_target_y.value() - self.dlg.sb_source_y.value())
+        
     
     def move_feature(self, feat, dx, dy):
         self.new_feat = feat.copy()
         self.geometry = feat["geometry"]
-        
         if self.geometry.wkbType() == 1: # Point
             self.geom = self.geometry.asPoint()
             self.newGeom = QgsPointXY(self.geom[0]+dx, self.geom[1]+dy)
@@ -252,7 +292,7 @@ class MoveFeature():
             self.new_feat["geometry"] = self.newGeometry
         
         elif self.geometry.wkbType() == 3: # Polygon
-            self.geom = self.geometry.asPolygon()
+            self.geom = self.geometry.buffer(0,5).asPolygon()
             self.newGeom=[]
             for g in self.geom:
                 self.g1=[]
@@ -298,7 +338,7 @@ class MoveFeature():
     
             self.newGeometry = QgsGeometry.fromMultiPolygonXY(self.newGeom)
             self.new_feat["geometry"] = self.newGeometry
-            
+           
         return self.new_feat
 
     def createShp(self, out_shp, features, inLayer, sr, out_type=None):
@@ -316,11 +356,13 @@ class MoveFeature():
             for f in features:
                 self.feat = QgsFeature()
                 self.feat.setGeometry(f["geometry"])
-                self.feat.setAttributes([k for i,j,k in f["properties"]])
+                self.attr = [k for i,j,k in f["properties"]]
+                self.feat.setAttributes(self.attr)
                 self.pr.addFeature(self.feat)
                 self.new_shp.updateExtents() 
             QgsProject.instance().addMapLayer(self.new_shp)
             self.new_shp.setCrs(QgsCoordinateReferenceSystem.fromWkt(sr))
+            
         else:
             self.fields = QgsFields()
             for t,n,_ in features[0]["properties"]:
@@ -330,7 +372,8 @@ class MoveFeature():
             for f in features:
                 self.feat = QgsFeature()
                 self.feat.setGeometry(f["geometry"])
-                self.feat.setAttributes([k for i,j,k in f["properties"]])
+                self.attr = [k for i,j,k in f["properties"]]
+                self.feat.setAttributes(self.attr)
                 self.writer.addFeature(self.feat)
                 
             self.layer=iface.addVectorLayer(out_shp, '', 'ogr')
@@ -347,8 +390,15 @@ class MoveFeature():
             self.layers = {layer.name():layer for layer in QgsProject.instance().mapLayers().values() if layer.type()== 0}
             self.getLayers()
             
-            self.dlg.pushButton_input_shp_5.clicked.connect(lambda x:self.getClickedCoor("start"))
-            self.dlg.pushButton_input_shp_4.clicked.connect(lambda x:self.getClickedCoor("end"))
+            self.dlg.btn_source.clicked.connect(lambda x:self.getClickedCoor("start"))
+            self.dlg.btn_target.clicked.connect(lambda x:self.getClickedCoor("end"))
+            
+            self.dlg.cb_source.currentTextChanged.connect(self.getCoors)
+            self.dlg.cb_target.currentTextChanged.connect(self.getCoors)
+            self.dlg.sb_source_x.valueChanged.connect(self.getDeltas)
+            self.dlg.sb_source_y.valueChanged.connect(self.getDeltas)
+            self.dlg.sb_target_x.valueChanged.connect(self.getDeltas)
+            self.dlg.sb_target_y.valueChanged.connect(self.getDeltas)
             
             self.dlg.toolButton.clicked.connect(self.select_output)
 
@@ -361,49 +411,15 @@ class MoveFeature():
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
             
-            self.method = self.dlg.tabWidget.currentIndex()            
-            if self.method == 0:
-                self.startName = self.dlg.comboBox.currentText()
-                self.startLayer = self.layers[self.startName]
-                self.geomStart = next(self.startLayer.getFeatures()).geometry()
-                
-                self.endName = self.dlg.comboBox_2.currentText()
-                self.endLayer = self.layers[self.endName]
-                self.geomEnd = next(self.endLayer.getFeatures()).geometry()
-                
-                self.sx, self.sy = self.geomStart.asPoint()
-                self.ex, self.ey = self.geomEnd.asPoint()
-                
-                self.dx = self.ex-self.sx
-                self.dy = self.ey-self.sy
-            
-            elif self.method == 1:
-                self.sx = float(self.dlg.doubleSpinBox.text().replace(",","."))
-                self.sy = float(self.dlg.doubleSpinBox_2.text().replace(",","."))             
-                self.ex = float(self.dlg.doubleSpinBox_3.text().replace(",","."))
-                self.ey = float(self.dlg.doubleSpinBox_4.text().replace(",","."))             
-                self.dx = self.ex - self.sx
-                self.dy = self.ey - self.sy
-            
-            elif self.method == 2:
-                self.dx = float(self.dlg.doubleSpinBox_5.text().replace(",","."))
-                self.dy = float(self.dlg.doubleSpinBox_6.text().replace(",","."))
-                
-            elif self.method == 3:
-                self.sx = float(self.dlg.label_13.text().replace(",","."))
-                self.sy = float(self.dlg.label_14.text().replace(",","."))             
-                self.ex = float(self.dlg.label_15.text().replace(",","."))
-                self.ey = float(self.dlg.label_16.text().replace(",","."))             
-                self.dx = self.ex - self.sx
-                self.dy = self.ey - self.sy
-            
+            self.dx = self.dlg.sb_dx.value()
+            self.dy = self.dlg.sb_dy.value()
             
             self.out_shp = self.dlg.lineEdit.text()         
-            self.shpLayer = self.layers[self.dlg.comboBox_3.currentText()]
+            self.shpLayer = self.layers[self.dlg.cb_layers.currentText()]
             self.shpJson = [self.convertFeatToJson(feat) for feat in self.shpLayer.getFeatures()]
             self.sr = self.shpLayer.crs().toWkt()
             self.jsonList = [self.move_feature(feat, self.dx, self.dy) for feat in self.shpJson]
-                        
+                                    
             if self.out_shp:
                 try:
                     self.createShp(self.out_shp, self.jsonList, self.shpLayer, self.sr)

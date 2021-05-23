@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>589</width>
-    <height>390</height>
+    <width>606</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="button_box">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>340</y>
+     <x>430</x>
+     <y>450</y>
      <width>161</width>
      <height>32</height>
     </rect>
@@ -34,7 +34,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>561</width>
+     <width>590</width>
      <height>71</height>
     </rect>
    </property>
@@ -47,574 +47,23 @@
    <property name="title">
     <string>Features To Be Moved</string>
    </property>
-   <widget class="QComboBox" name="comboBox_3">
+   <widget class="QComboBox" name="cb_layers">
     <property name="geometry">
      <rect>
       <x>12</x>
       <y>25</y>
-      <width>530</width>
+      <width>561</width>
       <height>20</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>12</x>
-      <y>50</y>
-      <width>530</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>50</weight>
-      <italic>true</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QTabWidget" name="tabWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>120</y>
-     <width>571</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <property name="currentIndex">
-    <number>0</number>
-   </property>
-   <widget class="QWidget" name="tab">
-    <attribute name="title">
-     <string>Reference Points From Layer</string>
-    </attribute>
-    <widget class="QGroupBox" name="groupBox_ref_method">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>10</y>
-       <width>561</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string>Start and End Points</string>
-     </property>
-     <widget class="QComboBox" name="comboBox">
-      <property name="geometry">
-       <rect>
-        <x>12</x>
-        <y>20</y>
-        <width>530</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_2">
-      <property name="geometry">
-       <rect>
-        <x>12</x>
-        <y>55</y>
-        <width>530</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>Type Coordinates</string>
-    </attribute>
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>201</width>
-       <height>80</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string>Source Coordinates</string>
-     </property>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>17</x>
-        <y>22</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>X</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>17</x>
-        <y>50</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Y</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox">
-      <property name="geometry">
-       <rect>
-        <x>37</x>
-        <y>20</y>
-        <width>150</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="decimals">
-       <number>5</number>
-      </property>
-      <property name="maximum">
-       <double>1000000000.000000000000000</double>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
-      <property name="geometry">
-       <rect>
-        <x>37</x>
-        <y>48</y>
-        <width>150</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="decimals">
-       <number>5</number>
-      </property>
-      <property name="maximum">
-       <double>1000000000.000000000000000</double>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="geometry">
-      <rect>
-       <x>260</x>
-       <y>10</y>
-       <width>201</width>
-       <height>80</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string>Target Coordinates</string>
-     </property>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>17</x>
-        <y>22</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>X</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>17</x>
-        <y>50</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Y</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
-      <property name="geometry">
-       <rect>
-        <x>37</x>
-        <y>20</y>
-        <width>150</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="decimals">
-       <number>5</number>
-      </property>
-      <property name="maximum">
-       <double>1000000000.000000000000000</double>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
-      <property name="geometry">
-       <rect>
-        <x>37</x>
-        <y>48</y>
-        <width>150</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="decimals">
-       <number>5</number>
-      </property>
-      <property name="maximum">
-       <double>1000000000.000000000000000</double>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_3">
-    <attribute name="title">
-     <string>Type dx, dy</string>
-    </attribute>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>dx</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>20</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>dy</string>
-     </property>
-    </widget>
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>18</y>
-       <width>150</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="decimals">
-      <number>8</number>
-     </property>
-     <property name="maximum">
-      <double>1000000000.000000000000000</double>
-     </property>
-    </widget>
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>18</y>
-       <width>150</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="decimals">
-      <number>8</number>
-     </property>
-     <property name="maximum">
-      <double>1000000000.000000000000000</double>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_4">
-    <attribute name="title">
-     <string>Select From Canvas</string>
-    </attribute>
-    <widget class="QGroupBox" name="groupBox_4">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>10</y>
-       <width>201</width>
-       <height>80</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string>End Point Coordinates</string>
-     </property>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>17</x>
-        <y>22</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>X</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>17</x>
-        <y>50</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Y</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>37</x>
-        <y>22</y>
-        <width>141</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>37</x>
-        <y>50</y>
-        <width>141</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>201</width>
-       <height>80</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string>Start Point Coordinates</string>
-     </property>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>17</x>
-        <y>22</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>X</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>17</x>
-        <y>50</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Y</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_13">
-      <property name="geometry">
-       <rect>
-        <x>37</x>
-        <y>22</y>
-        <width>141</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_14">
-      <property name="geometry">
-       <rect>
-        <x>37</x>
-        <y>50</y>
-        <width>141</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QPushButton" name="pushButton_input_shp_4">
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>40</y>
-       <width>31</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>...</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_input_shp_5">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>40</y>
-       <width>31</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>...</string>
-     </property>
-    </widget>
-   </widget>
-  </widget>
-  <widget class="QLabel" name="label_11">
-   <property name="geometry">
-    <rect>
-     <x>22</x>
-     <y>90</y>
-     <width>321</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Select a method for selecting reference points.</string>
-   </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_6">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>270</y>
-     <width>561</width>
+     <y>380</y>
+     <width>587</width>
      <height>61</height>
     </rect>
    </property>
@@ -632,7 +81,7 @@
      <rect>
       <x>14</x>
       <y>25</y>
-      <width>491</width>
+      <width>521</width>
       <height>22</height>
      </rect>
     </property>
@@ -643,7 +92,7 @@
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
      <rect>
-      <x>514</x>
+      <x>550</x>
       <y>25</y>
       <width>27</width>
       <height>22</height>
@@ -652,6 +101,363 @@
     <property name="text">
      <string>...</string>
     </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>590</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="title">
+    <string>Reference Points</string>
+   </property>
+   <widget class="QGroupBox" name="groupBox_8">
+    <property name="geometry">
+     <rect>
+      <x>309</x>
+      <y>110</y>
+      <width>271</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>Target Coordinates</string>
+    </property>
+    <widget class="QDoubleSpinBox" name="sb_target_y">
+     <property name="geometry">
+      <rect>
+       <x>34</x>
+       <y>53</y>
+       <width>150</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>8</number>
+     </property>
+     <property name="minimum">
+      <double>-9999999999999999455752309870428160.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999999999999999635896294965248.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_27">
+     <property name="geometry">
+      <rect>
+       <x>14</x>
+       <y>55</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Y</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_28">
+     <property name="geometry">
+      <rect>
+       <x>14</x>
+       <y>25</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="sb_target_x">
+     <property name="geometry">
+      <rect>
+       <x>34</x>
+       <y>22</y>
+       <width>150</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>8</number>
+     </property>
+     <property name="minimum">
+      <double>-99999999999999991433150857216.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999999999999999538762658202121142272.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_target">
+     <property name="geometry">
+      <rect>
+       <x>195</x>
+       <y>36</y>
+       <width>31</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_ref_method_2">
+    <property name="geometry">
+     <rect>
+      <x>309</x>
+      <y>30</y>
+      <width>271</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>Target Point</string>
+    </property>
+    <widget class="QComboBox" name="cb_target">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>28</y>
+       <width>251</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>271</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>Source Coordinates</string>
+    </property>
+    <widget class="QDoubleSpinBox" name="sb_source_y">
+     <property name="geometry">
+      <rect>
+       <x>34</x>
+       <y>53</y>
+       <width>150</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>8</number>
+     </property>
+     <property name="minimum">
+      <double>-99999999999999991433150857216.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999999999999999635896294965248.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>14</x>
+       <y>55</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Y</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>14</x>
+       <y>25</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="sb_source_x">
+     <property name="geometry">
+      <rect>
+       <x>34</x>
+       <y>22</y>
+       <width>150</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>8</number>
+     </property>
+     <property name="minimum">
+      <double>-999999999999999945575230987042816.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>999999999999999939709166371603178586112.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_source">
+     <property name="geometry">
+      <rect>
+       <x>195</x>
+       <y>36</y>
+       <width>31</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_ref_method">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>271</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>Source Point</string>
+    </property>
+    <widget class="QComboBox" name="cb_source">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>28</y>
+       <width>251</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>210</y>
+      <width>271</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>dx</string>
+    </property>
+    <widget class="QDoubleSpinBox" name="sb_dx">
+     <property name="geometry">
+      <rect>
+       <x>34</x>
+       <y>20</y>
+       <width>150</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>8</number>
+     </property>
+     <property name="minimum">
+      <double>-9999999999999999455752309870428160.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>99999999999999997748809823456034029568.000000000000000</double>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>210</y>
+      <width>271</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>dy</string>
+    </property>
+    <widget class="QDoubleSpinBox" name="sb_dy">
+     <property name="geometry">
+      <rect>
+       <x>34</x>
+       <y>20</y>
+       <width>150</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>8</number>
+     </property>
+     <property name="minimum">
+      <double>-999999999999999939709166371603178586112.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999999999999999455752309870428160.000000000000000</double>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

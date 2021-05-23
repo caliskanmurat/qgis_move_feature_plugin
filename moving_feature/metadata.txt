@@ -5,8 +5,8 @@
 [general]
 name=Move Features
 qgisMinimumVersion=3.0
-description=This plugin moves the features from one location to another based on 4 method..
-version=1.0
+description=This plugin moves the features from one location to another based on several methods.
+version=2.0
 author=Murat ÇALIŞKAN
 email=caliskan.murat.20@gmail.com
 
