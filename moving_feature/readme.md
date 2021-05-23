@@ -20,7 +20,7 @@ In this method; the horizontal(Δx) and vertical(Δy) differences between start 
 ### 4-) Provide reference points by selecting them from canvas.
 In this method; start reference point and end reference point must be selected from canvas and a layer(to be moved) must be provided.<br/>
 
-### With new version(2.0), source and target coordinates can be chosen by using different methods. This feature makes the plugin more flexible.<br/> 
+### *** With new version(2.0), source and target coordinates can be chosen by using different methods. This feature makes the plugin more flexible.<br/> 
 
 <p align="left">
   <img width="350" src="../images/move_features.PNG">
