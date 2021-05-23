@@ -6,7 +6,7 @@ With this plugin, it is possible to move features from one location to another. 
 * The plugin can be downloaded from: <a href="https://plugins.qgis.org/plugins/moving_feature/" target="_blank">https://plugins.qgis.org/plugins/moving_feature/</a>
 
 
-For this process, 4 method can be used:<br/>
+For this process, 4 methods can be used:<br/>
 
 ### 1-) Provide layers for reference points.
 In this method; one point layer that contains 1 feature(start reference point), one point layer that contains 1 feature(end reference point) and a layer(to be moved) must be provided.<br/>
